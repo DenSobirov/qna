@@ -1,0 +1,21 @@
+.row
+  .col-lg-4
+    h3 New Question
+= form_for @question do |f|
+  = render 'common/errors', resource: @question
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :body
+    = f.text_area :body, class: 'form-control'
+  .form-group
+    h4 Attachments
+    #files
+      = f.fields_for :attachments, @question.attachments.build do |attachment|
+        = render 'attachments/file', f: attachment
+      .links
+        = link_to_add_association 'Add', f, :attachments, partial: 'attachments/file'
+  .form-group
+    .actions
+      = f.submit 'Create', class: 'btn btn-primary'

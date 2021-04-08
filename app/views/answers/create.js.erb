@@ -1,0 +1,18 @@
+<% if @answer.errors.present? %>
+  $('#errors-messages').html('<%= j resource_error_messages!(@answer) %>');
+<% else %>
+  <% if remotipart_submitted? %>
+    $('#best-answer-element').after("<%= j "#{render @answer}" %>");
+  <% else %>
+    $('#best-answer-element').after("<%= j render @answer %>");
+  <% end %>
+  $('#answer_body').val('');
+  $('.edit-answer-link').click(function (e) {
+    e.preventDefault();
+    $(this).hide();
+    var answer_id = $(this).parents('.answer').data('answerId');
+    $('#delete-answer-link-' + answer_id).hide();
+    $('form#edit-answer-' + answer_id).show();
+    $('#best-answer-link-' + answer_id).hide();
+  });
+<% end %>

@@ -1,0 +1,25 @@
+.edit_answer {
+  margin-top: 5px;
+  display: none;
+}
+
+.edit-answer-link {
+  margin: 0 0 0 5px;
+}
+
+.best-answer-title {
+  color: #3c763d;
+
+  span {
+    margin: 0 0 0 5px;
+  }
+}
+
+.best-answer-btn {
+  float: right;
+  opacity: 0.4;
+  &:hover {
+    color: #f9f2f4;
+    opacity: 0.7;
+  }
+}

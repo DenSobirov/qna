@@ -1,0 +1,6 @@
+- cache collection_cache_key_for :question do
+  .row.questions
+    = render @questions
+br
+.row
+  = link_to 'Ask question', new_question_path, class: 'btn btn-primary'
